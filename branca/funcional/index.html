@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <style>
+      div#board {
+        background: #FCC;
+        width: 400px;
+      }
+      div#board > div {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        height: 50px;
+      }
+      div#board > div:nth-child(even) > div:nth-child(odd),
+      div#board > div:nth-child(odd) > div:nth-child(even) {
+        background-color: #633;
+      }
+      div#board > div > div {
+        background-image: url('pieces.svg');
+        background-size: 300px;
+        background-repeat: no-repeat;
+        background-position: 50px 0;
+      }
+      div#board > div > div.K { background-position: 0 0; }
+      div#board > div > div.Q { background-position: -50px 0; }
+      div#board > div > div.B { background-position: -100px 0; }
+      div#board > div > div.N { background-position: -150px 0; }
+      div#board > div > div.R { background-position: -200px 0; }
+      div#board > div > div.P { background-position: -250px 0; }
+      div#board > div > div.k { background-position: 0 -50px; }
+      div#board > div > div.q { background-position: -50px -50px; }
+      div#board > div > div.b { background-position: -100px -50px; }
+      div#board > div > div.n { background-position: -150px -50px; }
+      div#board > div > div.r { background-position: -200px -50px; }
+      div#board > div > div.p { background-position: -250px -50px; }
+      div.input {margin-bottom: 20px;}
+    </style>
+  </head>
+  <body>
+    <div class="input">
+      <input 
+        placeholder="FEN game" 
+        id="game" 
+        value="5k1r/2q3p1/p3p2p/1B3p1Q/n4P2/6P1/bbP2N1P/1K1RR3 b KQkq - 1 2">
+      <button onclick="run()">OK</button>
+    </div>
+    <div id="board"></div>
+    <div>Brancas: <span id="white">0</span></div>
+    <div>Pretas: <span id="black">0</span></div>
+    <script src="fenreader.js"></script>
+    <script>
+    function run(){
+      let fengame = document.getElementById('game').value
+      console.log( fen2html(fengame) )
+      document.getElementById('board').innerHTML = fen2html(fengame)
+      document.getElementById('white').innerHTML = fenscore(fengame, 'w')
+      document.getElementById('black').innerHTML = fenscore(fengame, 'b')
+    }
+    run()
+    </script>
+  </body>
+</html>

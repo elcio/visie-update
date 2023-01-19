@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Meu exercício de HTML</title>
+    <link rel="stylesheet" href="../css/estilos.css" />
+  </head>
+  <body>
+    <nav>
+      <ul id="menu">
+        <li><a href="https://visie.com.br/">Visie</a></li>
+        <li><a href="https://elcio.com.br/">Elcio</a></li>
+        <li><a href="https://google.com.br/">Google</a></li>
+      </ul>
+    </nav>
+    <article>
+      <h1>Exercício de HTML</h1>
+      <div id="app">
+        Seu nome: <input id="nome" oninput="salvaNome()">
+          <button onclick="esquecer()">Esquecer!</button><br />
+          <label>
+            <input type="checkbox" id="watcher" onchange="changeLocation()">
+            Observar localização:
+          </label>
+        <span id="location"></span>
+      </div>
+      <p>Estou estudando HTML e este exercício demonstra minha proficiência. Sei fazer listas ordenadas:</p>
+      <ol class="destaque">
+        <li>Primeiro Item</li>
+        <li>Segundo Item</li>
+        <li>Terceiro Item</li>
+      </ol>
+      <p>E não ordenadas:</p>
+      <ul class="destaque">
+        <li>Item qualquer</li>
+        <li>Item qualquer</li>
+        <li>Item qualquer</li>
+      </ul>
+      <p>E de definição:</p>
+      <dl class="destaque">
+        <dt>OL:</dt>
+        <dd>Lista ordenada (por padrão é numerada)</dd>
+        <dt>UL:</dt>
+        <dd>Lista não ordenada (bullet points)</dd>
+        <dt>DL:</dt>
+        <dd>Lista de definições</dd>
+      </dl>
+    </article>
+    <aside>
+      <h2>Para saber mais:</h2>
+      <p><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">HTML na MDN</a></p>
+    </aside>
+    <script src="../html5_apis/exemplo.js"></script>
+  </body>
+</html>

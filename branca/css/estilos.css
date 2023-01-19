@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding:10px;
+}
+
+#menu {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin:0;
+  padding:0px;
+}
+
+#menu li {
+  list-style:none;
+  display: block;
+  margin:0;
+  padding:10px;
+  background: #006;
+}
+
+#menu li a {
+  display: block;
+  color: #99F;
+}
+
+
+.destaque {
+  padding:10px 10px 10px 50px;
+  background: rgb(255,220,168);
+  border-radius: 10px;
+  max-width: 400px;
+  width: calc(100% - 20px);
+}
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <input value="Manoel" id="nome" type="text" placeholder="Nome">
+      <input value="32" id="idade" type="number" min="0" max="150" placeholder="Idade">
+      <button onclick="enviar()">OK</button>
+    </div>
+    <div id="resultado"></div>
+    <script>
+    // É claro que podíamos gerar o HTML do resultado no
+    // próprio JavaScript, mas para demonstrar o uso de
+    // POST com fetch, vamos ao servidor.
+    async function enviar(){
+      const pessoa = {
+        nome: document.getElementById('nome').value,
+        idade: document.getElementById('idade').value
+      }
+      try {
+        const f = await fetch('format.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(pessoa)
+        })
+        if(f.status !== 200){
+          throw new Error('Erro ao enviar')
+        }
+        const r = await f.text()
+        document.getElementById('resultado').innerHTML = r
+      } catch (e) {
+        const r = `<p>Houve um erro ao enviar:</p><p>${e.message}</p>`
+        document.getElementById('resultado').innerHTML = r
+      }
+    }
+    </script>
+  </body>
+</html>
